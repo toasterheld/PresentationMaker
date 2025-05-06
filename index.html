@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PrasentationMaker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container" id="input-section">
+        <h1>PresentationMaker</h1>
+        <p>Schreibe unten die Themen deiner Präsentation hinein.</p>
+        <textarea id="topics" placeholder="Trage hier deine Themen ein (ein Thema pro Zeile)"></textarea>
+        <button id="create-presentation">Absenden</button>
+    </div>
+
+    <div class="presentation" id="presentation-section" style="display: none;">
+        <div class="slide" id="slide-content"></div>
+        <div class="navigation">
+            <button id="prev-slide">&larr;</button>
+            <button id="next-slide">&rarr;</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
