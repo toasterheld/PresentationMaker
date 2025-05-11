@@ -2,20 +2,47 @@ body {
     margin: 0;
     padding: 0;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    background-color: #f4f4f9;
-    color: #333;
+    background-color: #ffffff; /* Schlichter weißer Hintergrund */
+    color: #333; /* Standardfarbe für Text */
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
 }
 
+/* Farbanimation für den Hintergrund */
+@keyframes body-gradient-animation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Container für die Startseite */
 .container {
     text-align: center;
     width: 100%;
-    max-width: 600px;
+    max-width: 800px; /* Begrenzte Breite für ein fokussiertes Layout */
     margin: auto;
-    padding: 20px;
+    padding: 40px 20px; /* Mehr vertikaler und horizontaler Abstand */
+    background-color: #ffffff; /* Weißer Hintergrund */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Leichter Schatten für Tiefe */
+    border-radius: 12px; /* Abgerundete Ecken */
+    box-sizing: border-box;
+}
+
+/* Überschrift auf der Startseite */
+h1 {
+    font-size: 3rem; /* Große Schriftgröße */
+    font-weight: 600; /* Halb-fett für modernes Design */
+    color: #333; /* Dunkler Text */
+    margin-bottom: 20px;
+    letter-spacing: 1px; /* Leichte Buchstabenabstände */
 }
 
 #input-section {
@@ -44,28 +71,32 @@ textarea:focus {
     box-shadow: 0 0 5px rgba(255, 102, 0, 0.5);
 }
 
+/* Button für das Absenden */
 button {
-    margin-top: 15px;
-    padding: 10px 20px;
+    margin-top: 20px;
+    padding: 15px 30px;
     font-size: 16px;
+    font-weight: 600;
     color: #fff;
-    background-color: #ff6600;
+    background-color: #0078d4; /* Blau für modernes Design */
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 button:hover {
-    background-color: #e65c00;
+    background-color: #005a9e; /* Dunkleres Blau beim Hover */
+    transform: translateY(-2px); /* Leichter Hover-Effekt */
 }
 
 button:focus {
     outline: none;
+    box-shadow: 0 0 8px rgba(0, 120, 212, 0.5); /* Leuchtender Fokus */
 }
 
-.presentation {
+presentation {
     display: flex;
     width: 100vw;
     height: 100vh;
@@ -115,8 +146,8 @@ button:focus {
     background: none;
     border: 1px solid #ccc;
     border-radius: 4px;
-    width: 50px;
-    height: 40px;
+    width: 50px; /* Quadratische Form */
+    height: 50px; /* Quadratische Form */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -139,6 +170,43 @@ button:focus {
     border-color: #999;
 }
 
+/* Button für Vollbildmodus */
+.fullscreen-button {
+    position: absolute;
+    top: 20px; /* Direkt an den oberen Rand */
+    right: 20px; /* Direkt an den rechten Rand */
+    background: none;
+    border: 1px solid #ccc;
+    border-radius: 4px; /* Gleicher Border-Radius wie die Buttons unten */
+    width: 50px; /* Quadratische Form */
+    height: 50px; /* Quadratische Form */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    color: #333;
+    cursor: pointer;
+    z-index: 1000; /* Sicherstellen, dass der Button über allem liegt */
+    box-sizing: border-box; /* Verhindert, dass Padding die Größe beeinflusst */
+    margin: 0; /* Entfernt eventuelle Standard-Margins */
+    padding: 0; /* Entfernt eventuelle Standard-Paddings */
+}
+
+/* Entferne den Hover-Effekt */
+.fullscreen-button:hover {
+    border-color: #999; /* Nur die Border-Farbe ändern */
+    background: none; /* Kein Hintergrund beim Hover */
+}
+
+.fullscreen-button:focus {
+    outline: none;
+    border-color: #ccc;
+}
+
+.fullscreen-button:active {
+    border-color: #999;
+}
+
 .agenda-slide {
     display: flex;
     width: 100vw;
@@ -150,10 +218,11 @@ button:focus {
 
 .agenda-left {
     width: 50%;
-    background-color: #fff;
+    background-color: #ff6600; /* Orange Hintergrund */
+    color: #fff; /* Weißer Text */
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: center; /* Vertikale Zentrierung */
     align-items: center;
     padding: 20px;
     box-sizing: border-box;
@@ -162,23 +231,25 @@ button:focus {
 .agenda-left h2 {
     font-size: 3rem;
     margin-bottom: 10px;
-    color: #333;
+    color: #fff;
 }
 
 .agenda-left p {
     font-size: 1.5rem;
-    color: #555;
+    color: #fff;
 }
 
 .agenda-right {
     width: 50%;
-    background-color: #f46524;
-    color: #fff;
-    padding: 20px;
-    box-sizing: border-box;
+    background-color: #fff; /* Weißer Hintergrund */
+    color: #333; /* Dunkler Text */
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: center; /* Vertikale Zentrierung */
+    align-items: center; /* Horizontale Zentrierung */
+    padding: 20px; /* Abstand innerhalb der Box */
+    box-sizing: border-box;
+    text-align: left; /* Text linksbündig innerhalb der zentrierten Box */
 }
 
 .agenda-right ul {
@@ -190,8 +261,99 @@ button:focus {
 .agenda-right li {
     font-size: 1.5rem;
     margin-bottom: 10px;
+    line-height: 1.5; /* Angenehmer Zeilenabstand */
 }
 
 .agenda-right li::before {
-    content: "- ";
+    content: "- "; /* Aufzählungszeichen */
+    color: #000; /* Schwarz für das Symbol */
+    font-weight: bold;
+}
+
+/* Flexibles Layout für die Eingabe und Einstellungen */
+.split-container {
+    display: flex;
+    flex-direction: column; /* Vertikale Anordnung für kleinere Bildschirme */
+    gap: 20px; /* Abstand zwischen den Panels */
+}
+
+@media (min-width: 768px) {
+    .split-container {
+        flex-direction: row; /* Horizontale Anordnung für größere Bildschirme */
+        justify-content: space-between;
+    }
+}
+
+.left-panel, .right-panel {
+    flex: 1;
+    padding: 20px;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Linke und rechte Panels */
+.left-panel, .right-panel {
+    flex: 1;
+    padding: 40px; /* Mehr Padding innerhalb der Panels */
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+/* Linkes Panel mit der Textarea */
+.left-panel {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Textarea für die Themen */
+textarea#topics {
+    width: 100%;
+    height: 200px; /* Angemessene Höhe */
+    padding: 15px; /* Mehr Padding für Benutzerfreundlichkeit */
+    border: 1px solid #ddd; /* Dezente Umrandung */
+    border-radius: 8px; /* Abgerundete Ecken */
+    font-size: 16px; /* Angenehme Schriftgröße */
+    color: #333; /* Dunkler Text */
+    background-color: #f9f9f9; /* Leicht grauer Hintergrund */
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05); /* Leichter innerer Schatten */
+    resize: none;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+
+textarea#topics:focus {
+    outline: none;
+    border-color: #0078d4; /* Blaue Umrandung beim Fokus */
+    box-shadow: 0 0 5px rgba(0, 120, 212, 0.5); /* Leuchtender Fokus */
+}
+
+/* Rechtes Panel mit den Einstellungen */
+.right-panel h2 {
+    font-size: 1.5rem; /* Angemessene Überschriftengröße */
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.options label {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Abstand zwischen Checkbox und Text */
+    margin-bottom: 15px;
+    font-size: 16px; /* Angenehme Schriftgröße */
+    color: #555; /* Dezenter Text */
+}
+
+.options input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+    accent-color: #0078d4; /* Blaue Checkbox */
 }

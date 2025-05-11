@@ -10,8 +10,27 @@
 <body>
     <div class="container" id="input-section">
         <h1>PresentationMaker</h1>
-        <p>Schreibe unten die Themen deiner Präsentation hinein.</p>
-        <textarea id="topics" placeholder="Trage hier deine Themen ein (ein Thema pro Zeile)"></textarea>
+        <div class="split-container">
+            <!-- Linke Seite: Themen-Eingabe -->
+            <div class="left-panel">
+                <p>Schreibe unten die Themen deiner Präsentation hinein.</p>
+                <textarea id="topics" placeholder="Trage hier deine Themen ein (ein Thema pro Zeile)"></textarea>
+            </div>
+            <!-- Rechte Seite: Einstellungen -->
+            <div class="right-panel">
+                <h2>Einstellungen</h2>
+                <div class="options">
+                    <label>
+                        <input type="checkbox" id="exclude-checkin-out">
+                        Ohne Check-In/Out Frage
+                    </label>
+                    <label>
+                        <input type="checkbox" id="exclude-welcome-goodbye">
+                        Ohne Willkommens/Verabschiedungsfolie
+                    </label>
+                </div>
+            </div>
+        </div>
         <button id="create-presentation">Absenden</button>
     </div>
 
@@ -21,6 +40,8 @@
             <button id="prev-slide">&larr;</button>
             <button id="next-slide">&rarr;</button>
         </div>
+        <!-- Neuer Button für Vollbild -->
+        <button id="fullscreen-button" class="fullscreen-button">&#x26F6;</button>
     </div>
 
     <script src="script.js"></script>

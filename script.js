@@ -34,17 +34,19 @@ document.getElementById("create-presentation").addEventListener("click", functio
     }
 
     function generateAgendaSlide(topics) {
-        return `<div class="agenda-slide">
-            <div class="agenda-left">
-                <h2>Agenda</h2>
-                <p>Für das heutige Treffen</p>
+        return `
+            <div class="agenda-slide">
+                <div class="agenda-left">
+                    <h2>Agenda</h2>
+                    <p>Für das heutige Treffen:</p>
+                </div>
+                <div class="agenda-right">
+                    <ul>
+                        ${topics.map(topic => `<li>${topic}</li>`).join('')}
+                    </ul>
+                </div>
             </div>
-            <div class="agenda-right">
-                <ul>
-                    ${topics.map(topic => `<li>${topic}</li>`).join('')}
-                </ul>
-            </div>
-        </div>`;
+        `;
     }
 
     inputSection.style.display = "none";
@@ -79,6 +81,17 @@ document.getElementById("create-presentation").addEventListener("click", functio
                 renderSlide();
             }
             e.preventDefault();
+        }
+    });
+
+    document.getElementById("fullscreen-button").addEventListener("click", function () {
+        const presentationSection = document.getElementById("presentation-section");
+        if (presentationSection.requestFullscreen) {
+            presentationSection.requestFullscreen();
+        } else if (presentationSection.webkitRequestFullscreen) { // Safari
+            presentationSection.webkitRequestFullscreen();
+        } else if (presentationSection.msRequestFullscreen) { // IE/Edge
+            presentationSection.msRequestFullscreen();
         }
     });
 });
